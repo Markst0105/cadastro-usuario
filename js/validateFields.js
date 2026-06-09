@@ -63,6 +63,6 @@ function validateFields() {
     if (nameValidation && passStrength && emailValidation && yearValidation) {
         document.getElementById("inputResult").innerHTML = "Seus dados foram registrados";
     } else {
-        document.getElementById("inputResult").innerHTML = "";
+        document.getElementById("inputResult").innerHTML = "Seus dados não foram registrados";
     }
 }
