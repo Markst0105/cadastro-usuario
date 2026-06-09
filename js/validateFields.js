@@ -47,7 +47,7 @@ function validateFields() {
             document.getElementById("passStrengthMeter").value = 0;
             break;
         case 'fraca':
-            document.getElementById("inputPasswordHelp").innerHTML = "Senha fraca";
+            document.getElementById("inputPasswordHelp").innerHTML = "Senha Fraca";
             document.getElementById("passStrengthMeter").value = 10;
             break;
         case 'moderada':
