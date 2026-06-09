@@ -1,3 +1,11 @@
+function validarNome(nome) {
+    const regex = /^[a-zA-Z]+$/;
+    if (nome.length >= 6 && regex.test(nome)) {
+        return true;
+    }
+    return false;
+}
+
 function validateFields() {
 
     let name = document.getElementById("inputName").value;
@@ -5,10 +13,18 @@ function validateFields() {
     let password = document.getElementById("inputPassword").value;
     let year = document.getElementById("inputYear").value;
 
+    let nameValidation = validarNome(name);
+
+    if (nameValidation === false) {
+        document.getElementById("inputNameHelp").innerHTML = "Nome inválido.";
+    } else {
+        document.getElementById("inputNameHelp").innerHTML = " ";
+    }
+
     let emailValidation = Email.validarEmail(email);
 
     if(emailValidation === false){
-        document.getElementById("inputEmailHelp").innerHTML = "Endereço de e-mail incorreto!";
+        document.getElementById("inputEmailHelp").innerHTML = "Formato de email inválido.";
     } 
     else{
         document.getElementById("inputEmailHelp").innerHTML = " ";
@@ -17,7 +33,7 @@ function validateFields() {
     var yearValidation = Ano.validarAno(year);
 
     if(yearValidation === false){
-       document.getElementById("inputYearHelp").innerHTML = "Ano inválido!";
+       document.getElementById("inputYearHelp").innerHTML = "Ano inválido.";
     }
     else{
         document.getElementById("inputYearHelp").innerHTML = " ";
@@ -27,7 +43,7 @@ function validateFields() {
     
     switch (passStrength) {
         case false:
-            document.getElementById("inputPasswordHelp").innerHTML = "Senha inválida!";
+            document.getElementById("inputPasswordHelp").innerHTML = "Senha inválida.";
             document.getElementById("passStrengthMeter").value = 0;
             break;
         case 'fraca':
@@ -44,9 +60,9 @@ function validateFields() {
             break;
     }
 
-    if (passStrength && emailValidation && yearValidation) {
-        document.getElementById("inputResult").innerHTML = "Parabéns seus dados foram registrados :)";
+    if (nameValidation && passStrength && emailValidation && yearValidation) {
+        document.getElementById("inputResult").innerHTML = "Seus dados foram registrados";
     } else {
-        document.getElementById("inputResult").innerHTML = "Seus dados não foram registrados :(";
+        document.getElementById("inputResult").innerHTML = "";
     }
 }
