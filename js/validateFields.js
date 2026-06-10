@@ -43,7 +43,7 @@ function validateFields() {
     
     switch (passStrength) {
         case false:
-            document.getElementById("inputPasswordHelp").innerHTML = "Senha inválida.";
+            document.getElementById("inputPasswordHelp").innerHTML = "Senha inválida!";
             document.getElementById("passStrengthMeter").value = 0;
             break;
         case 'fraca':
